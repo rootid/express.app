@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+    <title>Image extractor</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+
+               
+            var invocation = new XMLHttpRequest();
+            var url = 'https://www.wikipedia.org/';
+               
+            var callOtherDomain = function () {
+              console.log("received the invocation " + invocation )
+              if(invocation) {    
+                invocation.open('GET', url, true);
+                //invocation.setRequestHeader('Access-Control-Request-Headers','');
+                invocation.setRequestHeader('Access-Control-Allow-Origin', '*');
+                invocation.setRequestHeader('Access-Control-Allow-Methods', 'GET');
+                invocation.setRequestHeader('Access-Control-Allow-Headers','Content-Type,X-Auth-Token,X-Requested-With');
+
+                //invocation.setRequestHeader('X-PINGOTHER', 'pingpong');
+                //invocation.setRequestHeader('Access-Control-Allow-Methods' , 'POST, GET');
+
+                invocation.onreadystatechange = handler;
+                invocation.send(); 
+              }
+            }();
+
+            function handler()
+            {
+                console.log("Handler invoked")
+                dom_ = invocation.responseText
+                dom_.getElementByClassNAme("langlist langlist-tiny").href
+                console.log(invocation.) 
+            }
+        
+            //$.ajaxSetup({
+            //    headers: { 
+            //            'Access-Control-Allow-Origin' : 'https://en.wikipedia.org'
+            //            ,'Access-Control-Allow-Methods' : 'POST, GET'
+            //            ,'Access-Control-Allow-Headers' : 'wikipedia'
+            //            ,'Access-Control-Max-Age' : '1728000'
+            //            }
+            //});
+            console.log('calling ready')
+            //var getSomeData = function() {
+            //  var data;
+            //  $.ajax({
+
+            //    method : 'POST',
+            //    //url: 'http://localhost:4000/index.html',
+            //    url: 'https://en.wikipedia.org/wiki/Main_Page',
+            //    dataType: 'html',
+            //    headers: { 
+            //            'Access-Control-Allow-Origin' : 'https://en.wikipedia.org'
+            //            ,'Access-Control-Allow-Methods' : 'POST, GET'
+            //            ,'Access-Control-Allow-Headers' : 'wikipedia'
+            //            ,'Access-Control-Max-Age' : '1728000'
+            //            },
+            //    crossDomain: true,
+            //    success: function(resp,status,error) {
+            //      console.log('fetching respose' + resp)
+            //      $( '#target' ).html( '<h1> Results: </h1>' );
+            //    },
+            //    error : function(xhr, status, error) {
+            //        console.log("error "+ error + " status " + status + " xhr " + xhr );
+            //    }
+            //  });
+            //  //return data;
+            //}();
+            //possible error as ajax is async
+            //$( '#target' ).html( getSomeData().people[0].name );
+        });
+    </script>
+</head>
+<body>
+  
+<h2> target response </h2>
+<div id = "target"> 
+
+</div> 
+
+</body>
+</html>

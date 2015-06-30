@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+    <title>Image extractor</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var listItems = $( 'li' );
+
+            for (var i =0 ;i < listItems.length;i++ ) {
+                console.log(listItems[i]);
+            }
+
+            // filter the selection to only items with a class of 'special'
+            var special = listItems.filter( '.special' );
+            
+            // filter the selection to only items without a class of 'special'
+            var notSpecial = listItems.not( '.special' );
+            
+            // filter the selection to only items that contain a span
+            var hasSpans = listItems.has( 'span' );
+
+
+            
+            $( document ).on( 'click', function( event ) {
+              console.log( event.type );    // The event type, eg. "click"
+              console.log( event.which );   // The button or key that was pressed.
+              console.log( event.target );  // The originating element.
+              console.log( event.pageX );   // The document mouse X coordinate.
+              console.log( event.pageY );   // The document mouse Y coordinate.
+            });
+
+
+        });
+    </script>
+</head>
+<body>
+
+
+<ul>
+    <li>
+        <span>
+            <i>Foo</i>
+        </span>
+    </li>
+    <li>Bar</li>
+</ul>
+    
+
+</body>
+</html>
